@@ -1,0 +1,40 @@
+@import 'tailwindcss';
+
+/*
+ * Tailwind v4's default `dark:` follows prefers-color-scheme only. The settings
+ * screen offers an explicit light/dark override, so the variant has to key off
+ * a class that we stamp on <html> (see lib/theme.ts). For "system", theme.ts
+ * resolves the media query itself and sets or clears the class to match.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-50: oklch(0.97 0.014 286);
+  --color-brand-100: oklch(0.93 0.032 286);
+  --color-brand-500: oklch(0.59 0.2 277);
+  --color-brand-600: oklch(0.51 0.21 277);
+  --color-brand-700: oklch(0.45 0.19 277);
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Thin, unobtrusive scrollbars — the popup and side panel are narrow. */
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, currentColor 25%, transparent) transparent;
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.zip
+.DS_Store
+*.local
+.vite/
+.chrome-test-profile/
+.chrome-*-profile/
+.chrome-assets-profile/
